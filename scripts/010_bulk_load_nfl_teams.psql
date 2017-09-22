@@ -1,0 +1,1 @@
+\copy teams(city,name,conference,division,TIMESTAMP,TIMESTAMP) FROM 'data/nfl-teams-2017.csv' WITH (FORMAT csv, HEADER true)
