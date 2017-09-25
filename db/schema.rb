@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170924122002) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "week_num"
-    t.time     "time"
+    t.datetime "time"
     t.integer  "away_team_id"
     t.integer  "home_team_id"
     t.string   "country"

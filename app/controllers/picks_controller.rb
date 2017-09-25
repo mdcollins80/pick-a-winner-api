@@ -39,13 +39,14 @@ class PicksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pick
-      @pick = Pick.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def pick_params
-      params.require(:pick).permit(:user_id, :game_id, :picked_team_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pick
+    @pick = Pick.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def pick_params
+    params.require(:pick).permit(:user_id, :game_id, :team_id)
+  end
 end
