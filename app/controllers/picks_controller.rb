@@ -1,9 +1,9 @@
-class PicksController < ApplicationController
+class PicksController < ProtectedController
   before_action :set_pick, only: [:show, :update, :destroy]
 
   # GET /picks
   def index
-    @picks = Pick.all
+    @picks = current_user.picks.all
 
     render json: @picks
   end
@@ -18,7 +18,7 @@ class PicksController < ApplicationController
     @pick = Pick.new(pick_params)
 
     if @pick.save
-      render json: @pick, status: :created, location: @pick
+      render json: @pick, status: :created
     else
       render json: @pick.errors, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class PicksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pick
-      @pick = Pick.find(params[:id])
+      @pick = current_user.picks.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
