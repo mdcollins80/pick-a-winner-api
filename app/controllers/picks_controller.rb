@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PicksController < ProtectedController
   before_action :set_pick, only: [:show, :update, :destroy]
 

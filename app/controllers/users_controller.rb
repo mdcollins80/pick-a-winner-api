@@ -44,6 +44,17 @@ class UsersController < ProtectedController
     end
   end
 
+  # # PATCH '/change-teamname/:id'
+  # def changeteamname
+  #   if !current_user.authenticate(pw_creds[:old]) ||
+  #      (current_user.password = pw_creds[:new]).blank? ||
+  #      !current_user.save
+  #     head :bad_request
+  #   else
+  #     head :no_content
+  #   end
+  # end
+
   def index
     render json: User.all
   end
