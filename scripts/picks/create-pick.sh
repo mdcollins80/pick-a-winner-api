@@ -11,7 +11,7 @@ curl "${API}${URL_PATH}" \
     "pick": {
       "user_id": "'"${USERID}"'",
       "game_id": "'"${GAMEID}"'",
-      "team_id": "'"${PICKID}"'"
+      "winning_team": "'"${WINNER}"'"
     }
   }'
 

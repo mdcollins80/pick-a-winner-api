@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :picks, except: %i[new edit]
-  resources :games, except: %i[new edit]
+  resources :picks, except: [:new, :edit]
+  resources :games, only: [:index, :show, :update]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
