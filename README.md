@@ -23,7 +23,7 @@ The back end portion of this project was completed using:
 
 ## Planning:
 
-Entity Relationship Diagram: [Imgur]([Imgur](https://i.imgur.com/ANfjDYZ.jpg))
+Entity Relationship Diagram: [Imgur](https://i.imgur.com/ANfjDYZ.jpg)
 
 I ended up adjusting my ERD to exclude the Teams table and opted instead to use the team names in place of team ids in the games and picks table.
 
