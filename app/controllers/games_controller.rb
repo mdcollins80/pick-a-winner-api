@@ -1,4 +1,4 @@
-class GamesController < ApplicationController
+class GamesController < OpenReadController
   before_action :set_game, only: [:show, :update, :destroy]
 
   # GET /games
@@ -14,28 +14,37 @@ class GamesController < ApplicationController
   end
 
   # POST /games
-  def create
-    @game = Game.new(game_params)
-
-    if @game.save
-      render json: @game, status: :created
-    else
-      render json: @game.errors, status: :unprocessable_entity
-    end
-  end
+  # for future seasons
+  # def create
+  #   @game = Game.new(game_params)
+  #
+  #   if @game.save
+  #     render json: @game, status: :created
+  #   else
+  #     render json: @game.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /games/1
   def update
-    if @game.update(game_params)
-      render json: @game
+    if current_user.admin == true
+      if @game.update(game_params)
+        render json: @game
+      else
+        render json: @game.errors, status: :unprocessable_entity
+      end
     else
-      render json: @game.errors, status: :unprocessable_entity
+      render json: @game.errors, status: 403
     end
   end
 
   # DELETE /games/1
   def destroy
-    @game.destroy
+    if current_user.admin == true
+      @game.destroy
+    else
+      render json: @game.errors, status: 403
+    end
   end
 
   private

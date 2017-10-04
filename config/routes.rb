@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :picks, except: [:new, :edit]
-  resources :games, only: [:index, :show, :update]
+  resources :games, only: [:index, :update]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
